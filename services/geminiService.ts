@@ -1,11 +1,10 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import { MoodAnalysis } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY || '' });
 
 export const analyzeMood = async (text: string): Promise<MoodAnalysis> => {
-  const model = 'gemini-3-flash-preview';
+  const model = 'gemini-2.0-flash-exp';
   
   const response = await ai.models.generateContent({
     model: model,
@@ -58,7 +57,6 @@ export const analyzeMood = async (text: string): Promise<MoodAnalysis> => {
 
   const result = JSON.parse(response.text);
   
-  // Enrich tracks with placeholder images if missing
   const enrichedPlaylists = result.playlists.map((p: any) => ({
     ...p,
     tracks: p.tracks.map((t: any, idx: number) => ({
