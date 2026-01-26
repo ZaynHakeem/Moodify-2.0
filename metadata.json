@@ -1,0 +1,5 @@
+{
+  "name": "Moodify 2.0",
+  "description": "An AI-powered mood-to-music discovery app that analyzes your feelings and generates the perfect playlist vibes using Gemini AI.",
+  "requestFramePermissions": []
+}
